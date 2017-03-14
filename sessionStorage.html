@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Session Storage example</title>
+</head>
+<body onload="load()">
+  <input type="text" id="textfield">
+  <input type="button" value="Save" onclick="save()">
+  <input type="button" value="Remove" onclick="remove()">
+</body>
+<script type="text/javascript">
+  
+  /* On clicking save button */
+  function save() {
+    var fieldValue = document.getElementById('textfield').value;
+    sessionStorage.setItem('text',fieldValue);
+  }
+
+  /* On refreshing the window */
+  function load() {
+    var storedValue = sessionStorage.getItem('text');
+    if (storedValue) {
+      document.getElementById('textfield').value = storedValue;
+    }
+  }
+
+  /* Remove the value stored in local storage*/
+  function remove() {
+    document.getElementById('textfield').value = '';
+    sessionStorage.removeItem('text');
+  }
+
+</script>
+</html>
